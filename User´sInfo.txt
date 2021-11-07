@@ -1,0 +1,7 @@
+Name:Admin
+Email:Admin@Admin.com
+Password:AdminAdmin
+
+Name:Writer
+Email:Writer@Writer.com
+Password:WriterWriter

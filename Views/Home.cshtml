@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = "MasterTemplate.cshtml";
+}
+
+<h1>@Model.Value("title")</h1>
+
+
+
+    @{
+        var selection = Umbraco.Content(Guid.Parse("9a37616d-2bd6-4e10-8c6a-c2b45251792e"))
+        .ChildrenOfType("Text")
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.CreateDate);
+    }
+    <ul>
+        @foreach (var item in selection)
+        {
+            <h1>@item.Value("theText")</h1>
+            
+            	<li class="nav-item">
+			<a class="nav-link" href="@item.Url()">@item.Name()</a>
+		</li>
+        }
+    </ul>
+
+@*
+    @{
+        var selection = Umbraco.ContentAtRoot().DescendantsOrSelfOfType("Text");
+    }
+
+    @foreach (var item in selection)
+    {
+    <p>@item.Value("theText")</p>
+    }
+*@

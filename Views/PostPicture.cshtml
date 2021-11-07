@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PostPicture>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "MasterTemplate.cshtml";
+}
+
+<div>
+    @{
+    var image = Model.Value<IPublishedContent>("picture");
+    }
+    <div>
+    <h2>@Model.Value("pictureTitle")</h2>    
+    </div>
+    <div>
+        <img src="@image.Url()" alt ="Good Image">
+    </div>
+    
+</div>
